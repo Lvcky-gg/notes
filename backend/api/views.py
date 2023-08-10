@@ -19,6 +19,7 @@ def get_notes(request):
 
 @api_view(['GET'])
 def get_note(request, pk):
+    # param = request.GET.get('id')
     notes = Note.objects.get(id=pk)
     if notes:
         serializer = NoteSerializer(notes, many=False)
