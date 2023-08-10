@@ -5,7 +5,6 @@ import { getAllNotes } from '../store/notes';
 const NotesListPage = () => {
     const dispatch = useDispatch()
     const notes = useSelector((state)=> state.notes.allNotes)
-    console.log(notes)
 
 
   useEffect(()=>{
@@ -16,7 +15,7 @@ const NotesListPage = () => {
 
   return (
     <div>
-      notes
+      {notes?.map((note)=> (<p key={note.id}>{note.body}</p>))}
     </div>
   )
 }
