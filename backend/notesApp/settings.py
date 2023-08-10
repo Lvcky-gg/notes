@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
 ]
 
+# Need cors HEADER!!!!
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
