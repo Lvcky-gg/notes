@@ -20,6 +20,8 @@ def get_notes(request):
 @api_view(['GET'])
 def get_note(request, pk):
     notes = Note.objects.get(id=pk)
-    serializer = NoteSerializer(notes, many=False)
-
-    return Response(serializer.data)
+    if notes:
+        serializer = NoteSerializer(notes, many=False)
+        return Response(serializer.data)
+    else:
+        raise Exception("This note does not exist")
