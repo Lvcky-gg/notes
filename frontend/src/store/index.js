@@ -1,7 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit';
+import noteReducer from './notes'
 
 const store = configureStore({
     reducer:{
+        notes:noteReducer
 
     },
     middleware: (getDefaultMiddleware) =>
