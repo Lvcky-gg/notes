@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/header'
 import NotesListPage from './pages/NotesListPage'
+import NotePage from './pages/NotePage'
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/notes" element={<NotesListPage/>}/>
+        <Route path="/notes/:noteId" element={< NotePage />}/>
 
        
 
