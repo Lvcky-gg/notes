@@ -13,5 +13,5 @@ RUN apk add --virtual .build-deps --no-cache postgresql-dev gcc python3-dev musl
         apk --purge del .build-deps
 
 COPY . /app/backend/
-
+# dont need last item
 CMD [ "python", "manage.py", "runserver", "http://127.0.0.1:8000" ]
