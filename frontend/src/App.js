@@ -6,7 +6,8 @@ import { Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
-    <>
+    <div className="container dark">
+      <div className="app">
       <Header/>
       <Routes>
         <Route path="/notes" element={<NotesListPage/>}/>
@@ -15,8 +16,9 @@ function App() {
        
 
       </Routes>
+      </div>
       
-    </>
+    </div>
   );
 }
 

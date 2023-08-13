@@ -1,12 +1,12 @@
 //rafce
-import React from 'react'
+import React from "react";
 
 const Header = () => {
   return (
-    <div>
-      <h1>Header</h1>
+    <div className="app-header">
+      <h1>Note List</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
