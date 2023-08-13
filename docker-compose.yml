@@ -38,6 +38,8 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
+      - SECRET=ASDHKULYHMAKJDSjahskdlhgakdwHUIDHAW
+      
 
     ports:
       - '8000:8000'
@@ -47,3 +49,6 @@ services:
 
     depends_on:
       - db
+
+
+# need to solve the issue of ports from 172 to 127
