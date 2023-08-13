@@ -16,7 +16,7 @@ const NotesListPage = () => {
 
   return (
     <div>
-      {notes?.map((note)=> (<ListItem key={note.id} note={note}></ListItem>))}
+      { notes?.map((note)=> (<ListItem key={note.id} note={note}></ListItem>))}
     </div>
   )
 }

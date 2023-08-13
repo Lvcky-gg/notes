@@ -6,7 +6,8 @@ export const noteSlice = createSlice({
     name:'notes',
     initialState:{
         allNotes:[],
-        errors:null
+        errors:null,
+        note:null
     },
     reducers:{
 
@@ -24,12 +25,12 @@ export const noteSlice = createSlice({
 
         })
         .addCase(getANote.fulfilled, (state, action)=>{
-            state.allNotes = action.payload
+            state.note = action.payload
             state.errors = null
 
         })
         .addCase(getANote.rejected, (state, action)=>{
-            state.allNotes = null
+            state.note = null
             state.errors = action.payload
 
         })
