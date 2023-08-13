@@ -8,7 +8,7 @@ import { getANote } from '../store/notes';
 const NotePage = () => {
   const {noteId }= useParams();
   const dispatch = useDispatch();
-  const note = useSelector((state)=> state.notes.allNotes);
+  const note = useSelector((state)=> state.notes.note);
   useEffect(()=>{
     dispatch(getANote(noteId))
 
