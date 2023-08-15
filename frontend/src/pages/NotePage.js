@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useDispatch} from 'react-redux';
 import { getANote } from '../store/notes';
+import {FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const NotePage = () => {
@@ -12,12 +13,22 @@ const NotePage = () => {
   useEffect(()=>{
     dispatch(getANote(noteId))
 
-  },[dispatch])
+  },[dispatch, noteId])
 
   
   return (
     <div>
-      <h1>{note?.body}</h1>
+      <div className='note-header'>
+        <h3>
+          <Link to='/notes'>
+
+            <FontAwesomeIcon icon='chevron-left' size='lg'/>
+          </Link>
+        </h3>
+        
+
+      </div>
+      <textarea defaultValue={note?.body}></textarea>
     </div>
   )
 }
