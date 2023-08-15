@@ -21,15 +21,14 @@ def get_notes(request):
 def get_note(request, pk):
     # param = request.GET.get('id')
     notes = Note.objects.get(id=pk)
-  
-    serializer = NoteSerializer(notes, many=False)
-    if serializer.is_valid():
+    if notes:
+        serializer = NoteSerializer(notes, many=False)
         return Response(serializer.data)
     else:
         raise Exception("This note does not exist")
 
 @api_view(['PUT'])   
-def updateNote(request, pk):
+def update_note(request, pk):
     data = request.data
     note = Note.objects.get(id=pk)
     serializer = NoteSerializer(instance=note, many=False, data=data)

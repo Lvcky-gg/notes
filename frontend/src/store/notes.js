@@ -34,7 +34,15 @@ export const noteSlice = createSlice({
             state.errors = action.payload
 
         })
-
+        .addCase(updateANote.fulfilled, (state, action)=>{
+            const updateNote = action.payload;
+            const idx = state.allNotes.findIndex((note)=> note.id === updateNote.id)
+            state.allNotes[idx] = updateNote
+            state.errors = null
+        })
+        .addCase(updateANote.rejected, (state, action)=>{
+            state.errors = action.payload
+        })
     }
 })
 
@@ -63,6 +71,25 @@ export const getANote = createAsyncThunk(
         try {
             const res = await axios.get(
                 `/api/notes/${noteId}`,
+                   {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "XSRF-Token": Cookies.get("XSRF-TOKEN"),
+                      },
+                   });
+            if(res.data)return res.data
+        }catch(err){
+            return rejectWithValue({errors:err.response.data.errors})
+        }
+    }
+)
+export const updateANote = createAsyncThunk(
+    "notes/getANote",
+    async ({noteId, body}, {rejectWithValue}) => {
+        try {
+            const res = await axios.put(
+                `/api/notes/${noteId}`,
+                JSON.stringify({body}),
                    {
                     headers: {
                         "Content-Type": "application/json",
