@@ -32,7 +32,7 @@ def get_note(request, pk):
 def updateNote(request, pk):
     data = request.data
     note = Note.objects.get(id=pk)
-    serializer = NoteSerializer(note, many=False)
+    serializer = NoteSerializer(instance=note, many=False, data=data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data)
