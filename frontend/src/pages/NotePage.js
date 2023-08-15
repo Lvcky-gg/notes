@@ -17,7 +17,7 @@ const NotePage = () => {
   
   return (
     <div>
-      <h1>{note.body}</h1>
+      <h1>{note?.body}</h1>
     </div>
   )
 }
