@@ -28,7 +28,7 @@ const NotePage = () => {
         
 
       </div>
-      <textarea defaultValue={note?.body}></textarea>
+      <textarea placeholder="Edit note" value={note?.body}></textarea>
     </div>
   )
 }
